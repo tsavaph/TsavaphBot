@@ -38,7 +38,7 @@
                 <version>3.0.3</version>
 
                 <configuration>
-                    <appName>tsavaph</appName>
+                    <appName>yourAppName</appName>
 
                     <processTypes>
                         <worker>java $JAVA_OPTS -Dserver.port=$PORT:33500 -Dfile.encoding=UTF-8 -cp target/classes:target/dependency/* bots.Main</worker>
