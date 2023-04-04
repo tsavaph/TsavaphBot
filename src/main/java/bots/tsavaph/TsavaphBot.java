@@ -27,9 +27,9 @@ import java.util.List;
 
 public class TsavaphBot extends TelegramLongPollingBot {
 
-    private String botUserName;
-    private String botToken;
-    private String xYandexApiKey;
+    private final String botUserName;
+    private final String botToken;
+    private final String xYandexApiKey;
 
     @Override
     public String getBotUsername() {
@@ -55,21 +55,21 @@ public class TsavaphBot extends TelegramLongPollingBot {
             try {
                 handleInlineQuery(update.getInlineQuery());
             } catch (TelegramApiException | IOException e) {
-                System.out.println(e);;
+                System.out.println(e);
             }
         }
         if (message.hasLocation()) {
             try {
                 handleLocation(message);
             } catch (TelegramApiException | IOException e) {
-                System.out.println(e);;
+                System.out.println(e);
             }
         }
         if (message.hasEntities()) {
             try {
                 handleCommand(message);
             } catch (TelegramApiException | IOException e) {
-                System.out.println(e);;
+                System.out.println(e);
             }
         }
 
@@ -85,7 +85,7 @@ public class TsavaphBot extends TelegramLongPollingBot {
         }
 
         InputMessageContent m2 = InputTextMessageContent.builder().messageText(BitcoinInfo.getCurrencyInfo()).build();
-        InputMessageContent m3 = InputTextMessageContent.builder().messageText("Соси \uD83C\uDF46").build();
+        InputMessageContent m3 = InputTextMessageContent.builder().messageText("Счастья, здоровья! \uD83D\uDE07").build();
         InputMessageContent m4 = InputTextMessageContent.builder().messageText("[Открыть котека в браузере](" + Photos.getRandomCatUrl() + ")").parseMode("MarkdownV2").build();
         InputMessageContent m5 = InputTextMessageContent.builder().messageText("" + ((int) (Math.random() * 100))).build();
         inlineQueryResults.add(InlineQueryResultArticle.builder().title("Курс биткоина \uD83D\uDCB0").id("2").inputMessageContent(m2).build());
